@@ -101,27 +101,21 @@
   .contacto a:hover { background: var(--cacao); color: var(--rosa); }
   .contacto:empty { display: none; }
 
-  /* semillas: entran de a una y despues respiran */
+  /* BROTAN: aparece la palabra y las semillas crecen de a una; despues queda quieto */
   .semilla {
     transform-box: fill-box;
     transform-origin: 50% 100%;
-    animation:
-      entra .7s cubic-bezier(.2, 1.4, .4, 1) both,
-      respira 4.5s ease-in-out infinite 1s;
+    animation: brota .9s cubic-bezier(.2, 1.5, .4, 1) .5s both;
   }
-  .semilla:nth-of-type(2) { animation-delay: .12s, 1.4s; }
-  .semilla:nth-of-type(3) { animation-delay: .24s, 1.8s; }
-  .palabra { animation: aparece .8s ease-out .3s both; }
+  .semilla:nth-of-type(2) { animation-delay: .65s; }
+  .semilla:nth-of-type(3) { animation-delay: .8s; }
+  .palabra { animation: aparece .6s ease-out both; }
   .bajada, .estado, .proximo { animation: aparece .8s ease-out .6s both; }
   .proximo { animation-delay: .75s; }
 
-  @keyframes entra {
-    from { transform: translateY(-40px) scale(.2); opacity: 0; }
-    to   { transform: none; opacity: 1; }
-  }
-  @keyframes respira {
-    0%, 100% { transform: none; }
-    50%      { transform: translateY(-5px) scaleY(1.05) scaleX(.97); }
+  @keyframes brota {
+    from { transform: scale(0); }
+    to   { transform: none; }
   }
   @keyframes aparece {
     from { opacity: 0; transform: translateY(10px); }
